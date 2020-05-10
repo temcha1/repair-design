@@ -1,7 +1,5 @@
 const {src, dest, watch} = require('gulp');
 const browserSync = require('browser-sync').create();
-var cleanCSS = require('gulp-clean-css');
-var rename = require("gulp-rename");
 const sass = require('gulp-sass');
 
 
@@ -17,17 +15,6 @@ function bs() {
   watch("./js/*.js").on('change', browserSync.reload);
 };
 
-function mincss() {
-
-  return src("./*.css")
-  
-  .pipe(rename({suffix: ".min"}))
-  
-  .pipe(cleanCSS())
-  
-  .pipe(dest("app/css"));
-  
-  };
 
   function serveSass() {
     return src("*./sass/*.sass")
